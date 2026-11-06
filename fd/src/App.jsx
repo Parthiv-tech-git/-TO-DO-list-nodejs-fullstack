@@ -22,7 +22,7 @@ let c= Object.entries(b)
 
 
 const ad =()=>{
-  if(count.length===0){
+  if(count.length==0){
     alert("please enter your task to add")
   }
 else{
@@ -32,7 +32,7 @@ else{
     body: JSON.stringify({count})
   })
     console.log(count)
-   alert("data is added")
+  //  alert("data is added"
     setCount('')
 }
 }
