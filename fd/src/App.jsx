@@ -14,19 +14,19 @@ let c= Object.entries(b)
  console.log(c)
  setCount1(c)}
  z();
-},[count1])
+},[])
 
 
 
 
 
 
-const ad =()=>{
+const ad =async()=>{
   if(count.length==0){
     alert("please enter your task to add")
   }
 else{
-  fetch('http://localhost:3000/additems',{
+await  fetch('http://localhost:3000/additems',{
     method:'POST',
     headers:{'content-Type':'application/json'},
     body: JSON.stringify({count})
@@ -36,13 +36,12 @@ else{
     setCount('')
 }
 }
-
-// const dlt =  ()=>{
-//  fetch('http://localhost:3000/additems',{
-//   method:'DELETE'
-//  })
-
-// }
+const dlt =async()=>{
+  await fetch('http://localhost:3000/additems',{
+   method:'DELETE'
+  })
+shouu();
+ }
  
 
 const shouu = async()=>{
@@ -69,7 +68,7 @@ let c= Object.entries(b)
         <div className="btnc">
           <button onClick={ad}>add</button>
           <button onClick={shouu}>show all</button>
-          <button  id='del' > delet all </button>
+          <button  id='del' onClick={dlt} > delet all </button>
         </div>
         <div className="dat">
   {count1.map((x) => (
